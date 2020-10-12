@@ -7,9 +7,9 @@ package basic;
  * 基础数结构
  */
 public class TreeNode {
-    private int value;
-    private TreeNode left;
-    private TreeNode right;
+    public int value;
+    public TreeNode left;
+    public TreeNode right;
 
     public TreeNode(int value) {
         this.value = value;

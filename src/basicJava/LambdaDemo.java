@@ -8,4 +8,19 @@ package basicJava;
  * ----      Example         ----
  */
 public class LambdaDemo {
+
+    private void inner() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
+    }
+
+    private void lambda() {
+        new Thread(() -> {
+
+        });
+    }
 }

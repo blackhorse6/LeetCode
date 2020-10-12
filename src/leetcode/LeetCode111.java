@@ -1,5 +1,9 @@
 package leetcode;
 
+import basic.TreeNode;
+
+import java.util.Stack;
+
 /**
  * User          : zhouchenbin
  * Date          : 2020-09-14
@@ -7,8 +11,59 @@ package leetcode;
  * ----      Description     ----
  * ----      Example         ----
  */
-public class LeetCode0 {
+public class LeetCode111 {
     public static void main(String[] args) {
 
+    }
+
+    /**
+     * 递归
+     *
+     * @param root
+     * @return
+     */
+    public static int minDepth(TreeNode root) {
+        int minDepth = Integer.MAX_VALUE;
+        if (root == null) {
+            return 0;
+        }
+        if (root.left == null && root.right == null) {
+            return 1;
+        }
+        if (root.left != null) {
+            minDepth = Math.min(minDepth, minDepth(root.left));
+        }
+        if (root.right != null) {
+            minDepth = Math.min(minDepth, minDepth(root.right));
+        }
+        return ++minDepth;
+    }
+
+    /**
+     * 迭代
+     *
+     * @param root
+     * @return
+     */
+    public static int minDepth1(TreeNode root) {
+
+        int minDepth = 0;
+        if (root == null) {
+            return minDepth;
+        }
+        Stack<TreeNode> stack = new Stack();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            minDepth++;
+            TreeNode pop = stack.pop();
+            if (pop.getLeft() != null && pop.getRight() != null) {
+                stack.push(pop.getRight());
+                stack.push(pop.getLeft());
+            } else {
+                break;
+            }
+
+        }
+        return minDepth;
     }
 }

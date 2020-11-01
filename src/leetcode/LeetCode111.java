@@ -23,20 +23,21 @@ public class LeetCode111 {
      * @return
      */
     public static int minDepth(TreeNode root) {
-        int minDepth = Integer.MAX_VALUE;
+
         if (root == null) {
             return 0;
         }
         if (root.left == null && root.right == null) {
             return 1;
         }
+        int min = Integer.MAX_VALUE;
         if (root.left != null) {
-            minDepth = Math.min(minDepth, minDepth(root.left));
+            min = Math.min(minDepth(root.left), min);
         }
-        if (root.right != null) {
-            minDepth = Math.min(minDepth, minDepth(root.right));
+        if (root.right!=null){
+            min= Math.min(minDepth(root.right), min);
         }
-        return ++minDepth;
+        return min;
     }
 
     /**

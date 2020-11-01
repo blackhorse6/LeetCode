@@ -24,19 +24,15 @@ public class LeetCode144 {
     }
 
     /**
-     * 递归实现
+     * 非递归前序
      *
-     * @param root
-     * @return
      */
     public List<Integer> preOrderTraversal(TreeNode root) {
-        if (root == null) {
-            return null;
-        }
-        list.add(root.getValue());
-        preOrderTraversal(root.getLeft());
-        preOrderTraversal(root.getRight());
-        return null;
+
+        List<Integer> list = new ArrayList<>();
+
+        return  list;
+
     }
 
 }

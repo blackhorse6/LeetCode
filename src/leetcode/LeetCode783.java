@@ -16,7 +16,32 @@ public class LeetCode783 {
 
     }
 
+    private static int cur = Integer.MAX_VALUE;
+    private static TreeNode preNode = null;
+
+    /**
+     * 给出一个节点，输出节点最小差值
+     *
+     * @param root
+     * @return
+     */
     public static int minDiffInBST(TreeNode root) {
-        return 1;
+
+        dfs(root);
+        return cur;
+
+    }
+
+    public static void dfs(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+        dfs(node.left);
+        if (preNode != null) {
+            cur = Math.min(node.value - preNode.value, cur);
+        }
+        preNode = node;
+        dfs(node.right);
+
     }
 }

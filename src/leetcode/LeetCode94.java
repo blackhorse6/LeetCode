@@ -1,6 +1,5 @@
 package leetcode;
 
-import basic.ListNode;
 import basic.TreeNode;
 
 import java.util.ArrayList;
@@ -47,7 +46,7 @@ public class LeetCode94 {
             return;
         }
         inOrder(root.getLeft(), list);
-        list.add(root.getValue());
+        list.add(root.getVal());
         inOrder(root.getRight(), list);
     }
 
@@ -60,20 +59,19 @@ public class LeetCode94 {
      */
     public static List<Integer> inorderTraversal2(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack();
-        while (root != null || !stack.isEmpty()) {
-            while (root != null) {
-                stack.push(root);
-                root = root.left;
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode current = root;
+        while (current != null || !stack.isEmpty()) {
+            while (current != null) {
+                stack.push(current);
+                current = current.left;
             }
-            if (!stack.isEmpty()){
+            if (!stack.isEmpty()) {
                 TreeNode pop = stack.pop();
-                list.add(pop.value);
-                stack.push(pop.right);
+                list.add(pop.val);
+                current = pop.right;
             }
-
         }
-
         return list;
 
     }

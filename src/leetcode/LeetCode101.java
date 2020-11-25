@@ -30,6 +30,6 @@ public class LeetCode101 {
             return false;
         }
         //都不为空
-        return left.value == right.value && check(left.left, right.right) && check(left.right, right.left);
+        return left.val == right.val && check(left.left, right.right) && check(left.right, right.left);
     }
 }

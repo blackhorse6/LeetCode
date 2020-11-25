@@ -4,6 +4,7 @@ import basic.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * User          : zhouchenbin
@@ -25,14 +26,27 @@ public class LeetCode144 {
 
     /**
      * 非递归前序
-     *
      */
     public List<Integer> preOrderTraversal(TreeNode root) {
 
         List<Integer> list = new ArrayList<>();
 
-        return  list;
+        Stack<TreeNode> stack = new Stack();
+        if (root!=null){
+            stack.push(root);
+        }
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            list.add(node.val);
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }
+
+        return list;
 
     }
-
 }

@@ -38,7 +38,7 @@ public class LeetCode783 {
         }
         dfs(node.left);
         if (preNode != null) {
-            cur = Math.min(node.value - preNode.value, cur);
+            cur = Math.min(node.val - preNode.val, cur);
         }
         preNode = node;
         dfs(node.right);

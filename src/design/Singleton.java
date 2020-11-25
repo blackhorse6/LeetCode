@@ -19,7 +19,6 @@ public class Singleton {
     private static Singleton instance = new Singleton();
     private static Singleton instance2 = null;
     private static volatile Singleton instance3 = null;
-    private static Singleton instance4 = null;
 
     public static void main(String[] args) {
 
@@ -72,6 +71,7 @@ public class Singleton {
 
     /**
      * 4
+     *
      * @return
      */
     public static Singleton getInstance4() {

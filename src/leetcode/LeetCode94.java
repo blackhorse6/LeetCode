@@ -71,6 +71,7 @@ public class LeetCode94 {
                 list.add(pop.val);
                 current = pop.right;
             }
+
         }
         return list;
 

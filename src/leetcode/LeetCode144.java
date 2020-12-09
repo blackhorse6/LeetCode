@@ -17,7 +17,7 @@ import java.util.Stack;
  */
 public class LeetCode144 {
 
-    List<Integer> list = new ArrayList<>();
+    static List<Integer> list = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -32,7 +32,7 @@ public class LeetCode144 {
         List<Integer> list = new ArrayList<>();
 
         Stack<TreeNode> stack = new Stack();
-        if (root!=null){
+        if (root != null) {
             stack.push(root);
         }
         while (!stack.isEmpty()) {
@@ -45,8 +45,26 @@ public class LeetCode144 {
                 stack.push(node.left);
             }
         }
-
         return list;
-
     }
+
+    /**
+     * 递归
+     *
+     * @param root
+     * @return
+     */
+    public static void preOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        list.add(root.val);
+        if (root.left!=null){
+            preOrder(root.left);
+        }
+        if (root.right!=null){
+            preOrder(root.right);
+        }
+    }
+
 }
